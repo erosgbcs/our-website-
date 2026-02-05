@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffcce6 0%, #ff99cc 100%);
+            color: #6d0039;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff0080;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .heart {
+            color: #ff0080;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.2); }
+            10% { transform: scale(1.1); }
+            15% { transform: scale(1.3); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cc0066;
+            font-style: italic;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .active-section {
+            display: block;
+        }
+
+        /* Letter Section */
+        .letter-container {
+            background: #fff5fa;
+            border: 2px dashed #ff99cc;
+            border-radius: 15px;
+            padding: 25px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .letter-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .letter-content p {
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ff0080;
+        }
+
+        /* Photo Gallery */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .upload-area {
+            border: 3px dashed #ff99cc;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            background: #fff5fa;
+            margin-bottom: 20px;
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: #ff0080;
+            margin-bottom: 15px;
+        }
+
+        .upload-btn {
+            background: #ff0080;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover {
+            background: #cc0066;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.3);
+        }
+
+        /* Music Player */
+        .music-player {
+            background: #fff5fa;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .song-title {
+            font-size: 1.5rem;
+            color: #ff0080;
+            margin-bottom: 15px;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .control-btn {
+            background: #ff66b3;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            background: #ff0080;
+            transform: scale(1.1);
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: #ffccdd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #ff0080;
+            border-radius: 4px;
+            width: 0%;
+        }
+
+        .time-info {
+            display: flex;
+            justify-content: space-between;
+            color: #cc0066;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .nav-btn {
+            background: #ff66b3;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn:hover {
+            background: #ff0080;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.3);
+        }
+
+        .nav-btn:disabled {
+            background: #ffccdd;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .section-indicator {
+            text-align: center;
+            margin-top: 20px;
+            color: #cc0066;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #cc0066;
+            font-style: italic;
+            padding: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .photo-frame {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .nav-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .letter-container {
+                max-height: 300px;
+            }
+            
+            .gallery-container {
+                gap: 10px;
+            }
+            
+            .photo-frame {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>For My Beautiful Girlfriend <span class="heart">❤️</span></h1>
+            <p class="subtitle">A little website to show how much you mean to me</p>
+        </div>
+
+        <!-- Letter Section -->
+        <div id="section1" class="content-section active-section">
+            <h2><i class="fas fa-heart"></i> My Love Letter</h2>
+            <div class="letter-container">
+                <div class="letter-content">
+                    <p>My dearest love,</p>
+                    <p>From the moment we met, you've filled my life with so much joy and happiness. Every day with you feels like a beautiful dream that I never want to wake up from.</p>
+                    <p>I love the way your eyes light up when you smile, the sound of your laughter that makes my heart flutter, and the way you make even the most ordinary moments feel extraordinary.</p>
+                    <p>You are my sunshine on cloudy days, my comfort when I'm feeling down, and my greatest adventure. I cherish every memory we've created together and look forward to all the beautiful moments yet to come.</p>
+                    <p>No matter where life takes us, know that my love for you grows stronger with each passing day. You are the most amazing person I've ever known, and I'm endlessly grateful to have you in my life.</p>
+                    <p>Forever and always,</p>
+                    <div class="signature">Your loving boyfriend ❤️</div>
+                </div>
+            </div>
+            <div class="section-indicator">Page 1 of 3 - Our Love Letter</div>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div id="section2" class="content-section">
+            <h2><i class="fas fa-camera"></i> Our Memories Together</h2>
+            <div class="gallery-container" id="photoGallery">
+                <!-- Default photos -->
+                <div class="photo-frame">
+                    <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Romantic sunset">
+                </div>
+                <div class="photo-frame">
+                    <img src="https://images.unsplash.com/photo-1518495978942-83cdb633d6d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Heart-shaped decoration">
+                </div>
+                <div class="photo-frame">
+                    <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Couple holding hands">
+                </div>
+            </div>
+            
+            <div class="upload-area">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Add Our Special Photos</h3>
+                <p>Upload your favorite pictures of us to make this gallery truly ours</p>
+                <input type="file" id="photoUpload" accept="image/*" multiple style="display: none;">
+                <button class="upload-btn" onclick="document.getElementById('photoUpload').click()">
+                    <i class="fas fa-upload"></i> Upload Photos
+                </button>
+            </div>
+            <div class="section-indicator">Page 2 of 3 - Our Photo Gallery</div>
+        </div>
+
+        <!-- Music Player Section -->
+        <div id="section3" class="content-section">
+            <h2><i class="fas fa-music"></i> Our Song</h2>
+            <div class="music-player">
+                <div class="song-title">Perfect - Ed Sheeran</div>
+                <div class="player-controls">
+                    <button class="control-btn" id="prevBtn">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn" id="playBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn" id="nextBtn">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="time-info">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+                <div style="margin-top: 20px;">
+                    <p><i class="fas fa-info-circle"></i> This song reminds me of us because it's about finding the perfect person</p>
+                </div>
+            </div>
+            
+            <div class="upload-area">
+                <i class="fas fa-file-audio"></i>
+                <h3>Add Our Special Song</h3>
+                <p>Upload a song that reminds you of us (MP3 format)</p>
+                <input type="file" id="songUpload" accept="audio/*" style="display: none;">
+                <button class="upload-btn" onclick="document.getElementById('songUpload').click()">
+                    <i class="fas fa-upload"></i> Upload Song
+                </button>
+            </div>
+            <div class="section-indicator">Page 3 of 3 - Our Music</div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevPageBtn">
+                <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <button class="nav-btn" id="nextPageBtn">
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="footer">
+        Made with <span class="heart">❤️</span> for the most amazing person in my life
+    </div>
+
+    <script>
+        // Section navigation
+        let currentSection = 1;
+        const totalSections = 3;
+        
+        // DOM Elements
+        const prevPageBtn = document.getElementById('prevPageBtn');
+        const nextPageBtn = document.getElementById('nextPageBtn');
+        
+        // Music player elements
+        const playBtn = document.getElementById('playBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        
+        // Audio setup
+        const audio = new Audio();
+        audio.src = 'https://assets.codepen.io/4358584/perfect.mp3'; // Default song
+        
+        let isPlaying = false;
+        
+        // Function to show section
+        function showSection(sectionNumber) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active-section');
+            });
+            
+            // Show the selected section
+            document.getElementById(`section${sectionNumber}`).classList.add('active-section');
+            
+            // Update button states
+            prevPageBtn.disabled = sectionNumber === 1;
+            nextPageBtn.disabled = sectionNumber === totalSections;
+            
+            // Pause music if on a different section
+            if (sectionNumber !== 3 && isPlaying) {
+                pauseSong();
+            }
+            
+            currentSection = sectionNumber;
+        }
+        
+        // Navigation event listeners
+        prevPageBtn.addEventListener('click', () => {
+            if (currentSection > 1) {
+                showSection(currentSection - 1);
+            }
+        });
+        
+        nextPageBtn.addEventListener('click', () => {
+            if (currentSection < totalSections) {
+                showSection(currentSection + 1);
+            }
+        });
+        
+        // Music player functions
+        function togglePlay() {
+            if (isPlaying) {
+                pauseSong();
+            } else {
+                playSong();
+            }
+        }
+        
+        function playSong() {
+            isPlaying = true;
+            audio.play();
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            playBtn.setAttribute('title', 'Pause');
+        }
+        
+        function pauseSong() {
+            isPlaying = false;
+            audio.pause();
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            playBtn.setAttribute('title', 'Play');
+        }
+        
+        function updateProgress(e) {
+            const { duration, currentTime } = e.srcElement;
+            
+            // Update progress bar width
+            const progressPercent = (currentTime / duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+            
+            // Update time displays
+            currentTimeEl.textContent = formatTime(currentTime);
+            
+            if (duration) {
+                durationEl.textContent = formatTime(duration);
+            }
+        }
+        
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            
+            audio.currentTime = (clickX / width) * duration;
+        }
+        
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+        
+        // Event listeners for music player
+        playBtn.addEventListener('click', togglePlay);
+        
+        // Previous and next buttons (for future functionality)
+        prevBtn.addEventListener('click', () => {
+            // In a real app, this would go to previous song
+            alert('In a complete app, this would play the previous song in your playlist');
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            // In a real app, this would go to next song
+            alert('In a complete app, this would play the next song in your playlist');
+        });
+        
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('ended', () => {
+            isPlaying = false;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        });
+        
+        progressContainer.addEventListener('click', setProgress);
+        
+        // Photo upload functionality
+        document.getElementById('photoUpload').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const gallery = document.getElementById('photoGallery');
+            
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const photoFrame = document.createElement('div');
+                    photoFrame.className = 'photo-frame';
+                    
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = 'Our memory';
+                    
+                    photoFrame.appendChild(img);
+                    gallery.appendChild(photoFrame);
+                }
+                
+                reader.readAsDataURL(file);
+            }
+            
+            // Reset the file input so the same file can be uploaded again
+            this.value = '';
+        });
+        
+        // Song upload functionality
+        document.getElementById('songUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            
+            if (file && file.type.startsWith('audio/')) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    audio.src = e.target.result;
+                    
+                    // Update song title
+                    document.querySelector('.song-title').textContent = file.name.replace(/\.[^/.]+$/, "");
+                    
+                    // Play the song if we're on the music section
+                    if (currentSection === 3) {
+                        playSong();
+                    }
+                }
+                
+                reader.readAsDataURL(file);
+                
+                alert('Your song has been uploaded! Click play to listen.');
+            } else {
+                alert('Please select a valid audio file (MP3, WAV, etc.)');
+            }
+            
+            // Reset the file input
+            this.value = '';
+        });
+        
+        // Initialize the page
+        showSection(1);
+        
+        // Preload the audio to get duration
+        audio.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(audio.duration);
+        });
+    </script>
+</body>
+</html>
